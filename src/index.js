@@ -4,6 +4,7 @@ import App from './appTest.js'
 import MyButton from './lifeCycle.js'
 import Input from './getDom.js'
 import Profile from './myProfile.js'
+import MyRouter from './route.js'
 ReactDom.render(
 	<div>
 		<App click={() => alert('you have click')} title={'this is my test,you can click'}/>
@@ -14,6 +15,7 @@ ReactDom.render(
 			name={'boy'}
 			link={'https://github.com/settings/profile'}
 		/>
+		<MyRouter />
 	</div>,
 	document.getElementById('appTest')
 )
