@@ -5,6 +5,7 @@ import MyButton from './lifeCycle.js'
 import Input from './getDom.js'
 import Profile from './myProfile.js'
 import MyRouter from './route.js'
+import MyReduce from './reduce.js'
 ReactDom.render(
 	<div>
 		<App click={() => alert('you have click')} title={'this is my test,you can click'}/>
@@ -16,6 +17,7 @@ ReactDom.render(
 			link={'https://github.com/settings/profile'}
 		/>
 		<MyRouter />
+		<MyReduce />
 	</div>,
 	document.getElementById('appTest')
 )
