@@ -8,16 +8,23 @@ import MyRouter from './route.js'
 import MyReduce from './reduce.js'
 ReactDom.render(
 	<div>
+		<hr />
 		<App click={() => alert('you have click')} title={'this is my test,you can click'}/>
+		<hr />
 		<MyButton color={'burlywood'}/>
+		<hr />
 		<Input />
+		<hr />
 		<Profile 
 			image={'https://avatars2.githubusercontent.com/u/22787800?v=3&u=ea01e2a307d3d78212c276489189799db9cfd68a&s=400'}
 			name={'boy'}
 			link={'https://github.com/settings/profile'}
 		/>
+		<hr />
 		<MyRouter />
+		<hr />
 		<MyReduce />
+		<hr />
 	</div>,
 	document.getElementById('appTest')
 )
