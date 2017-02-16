@@ -1,5 +1,5 @@
 import React,{Component}from 'react'
-import {Router,Route,Link,hashHistory,IndexRoute,Redirect,IndexLink} from 'react-router'
+import {Router,Route,Link,hashHistory,IndexRoute,Redirect,IndexLink,Lifecycle,RouteContext} from 'react-router'
 
 const Profile = props => {
 	return (
@@ -21,11 +21,30 @@ const Name = props => {
 	)
 }
 
-const Age = props => {
-	return (
-		<h3>Age {props.params.age}</h3>
-	)
-}
+const Age = React.createClass({
+	
+	componentDidMount() {
+		 this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave)
+	},
+
+	routerWillLeave(next) {
+		if (this.refs.age.value === this.props.params.age) {
+			return true;
+		}else {
+			alert("年龄校验出错")
+			return false;
+		}
+	},
+	render() {
+		return (
+			<div>
+				<h3>Age {this.props.params.age}</h3>
+				<input ref="age" placeholder="确认离开吗？请校验年龄"/>
+				<IndexLink to="/" > 返回首页</IndexLink>
+			</div>
+		)
+	}
+})
 
 const IndexPage = props => {
 	return (
