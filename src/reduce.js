@@ -45,15 +45,17 @@ export default class Reduce extends Component {
 	}
 
 	componentWillMount() {
-		store.subscribe(() => {
+	  var unsubscribe=store.subscribe(() => {
 		this.setState({
 			size:store.getState().size,
 			width:store.getState().width,
 			height:store.getState().height
 		})
-	})
+		})
 	}
-
+	componentWillUnmount() {
+		unsubscribe();
+	}
 	render () {
 		return (
 			<div>
