@@ -1,22 +1,26 @@
 import React,{Component} from 'react'
 import {createStore} from 'redux'
-
+import myReducers from './myFunction.js'
+import {combineReducers} from 'redux'
 const Show = params => {
 	return(
 		<div>
 			<div onClick={() => {
 					store.dispatch({
-						type:'SIZE'
+						type:'SIZE',
+						value:5
 					})
 				}}>fontSize:+</div>
 			<div onClick={() => {
 					store.dispatch({
-						type:'WIDTH'
+						type:'WIDTH',
+						value:5
 					})
 				}}>width:+</div>
 			<div onClick={() => {
 					store.dispatch({
-						type:'HEIGHT'
+						type:'HEIGHT',
+						value:5
 					})
 				}}>height:+</div>
 			<div style={{color:'red',fontSize:params.font,width:params.width,height:params.height,backgroundColor:'green'}}>REDUCE</div>
@@ -24,16 +28,7 @@ const Show = params => {
 	)
 }
 
-const store = createStore((state={size:10,width:100,height:100},action) => {
-	switch (action.type) {
-			case 'SIZE':return Object.assign({},state,{size:store.getState().size+5});
-			case 'WIDTH':return Object.assign({},state,{width:store.getState().width+15});
-			case 'HEIGHT':return Object.assign({},state,{height:store.getState().height+15});
-			case 'RESET':return ({size:10,width:100,height:100});
-			default:return state;
-		}
-})
-
+const store = createStore(combineReducers(myReducers))
 export default class Reduce extends Component {
 	constructor(props) {
 		super(props),
@@ -51,7 +46,7 @@ export default class Reduce extends Component {
 			width:store.getState().width,
 			height:store.getState().height
 		})
-		})
+	})
 	}
 	componentWillUnmount() {
 		unsubscribe();
