@@ -42,7 +42,7 @@ export default class Reduce extends Component {
 	componentWillMount() {
 	  var unsubscribe=store.subscribe(() => {
 		this.setState({
-			size:store.getState().size,
+			size:store.getState().font,
 			width:store.getState().width,
 			height:store.getState().height
 		})

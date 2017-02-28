@@ -5,7 +5,8 @@ import MyButton from './lifeCycle.js'
 import Input from './getDom.js'
 import Profile from './myProfile.js'
 import MyRouter from './route.js'
-import MyReduce from './reduce.js'
+import MyRedux from './reduce.js'
+import MyReactRedux from './reactRedux.js'
 ReactDom.render(
 	<div>
 		<hr />
@@ -23,7 +24,9 @@ ReactDom.render(
 		<hr />
 		<MyRouter />
 		<hr />
-		<MyReduce />
+		<MyRedux />
+		<hr />
+		<MyReactRedux />
 		<hr />
 	</div>,
 	document.getElementById('appTest')

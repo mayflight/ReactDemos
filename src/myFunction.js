@@ -20,7 +20,7 @@
  }
 
 export default ({
-	size:changeSize,
+	font:changeSize,
 	height:changeHeight,
 	width:changeWidth
 })
