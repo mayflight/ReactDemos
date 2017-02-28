@@ -22,19 +22,28 @@ const MyShow = connect(
 		height:state.height,
 		title:params.title+state.font
 	}),
-	{	
+	(dispatch,props) => ({	
+		myReset:() => dispatch({type:'RESET'}),
+		mySize:() => dispatch({type:'SIZE',value:props.size}),
+		myWidth:() =>dispatch({type:'WIDTH',value:5}),
+		myHeight:() =>dispatch({type:'HEIGHT',value:5})
+	})
+)(Show)
+/**
+mapDispatchToProps也可是一个对象
+{	
 		myReset:() =>({type:'RESET'}),
 		mySize:() => ({type:'SIZE',value:5}),
 		myWidth:() =>({type:'WIDTH',value:5}),
 		myHeight:() =>({type:'HEIGHT',value:5})
 	}
-)(Show)
+*/
 const store = createStore(combineReducers(myReducers))
 export default class MyReactRedux extends Component {
 	render () {
 		return (
 			<Provider store={store}>
-				<MyShow title={'current fontSize: '}/>
+				<MyShow title={'current fontSize: '} size={5}/>
 			</Provider>
 		)
 	}
