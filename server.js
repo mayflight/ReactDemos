@@ -3,7 +3,8 @@ var WebpackDevServer = require('webpack-dev-server')
 var Config = require('./webpack.config.js')
 
 var server = new WebpackDevServer(Webpack(Config),{
-	publicPath:Config.output.publicPath
+	publicPath:Config.output.publicPath,
+	hot:true
 })
 
 server.listen(3142,'localhost',function(err,result) {

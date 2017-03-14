@@ -31,7 +31,7 @@ const Age = React.createClass({
 		if (this.refs.age.value === this.props.params.age) {
 			return true;
 		}else {
-			alert("年龄校验出错")
+			alert("需要输入正确的年龄哦")
 			return false;
 		}
 	},
